@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Doka2Trade</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <script src="js/mapManager.js"></script>
+        <script src="js/spriteManager.js"></script>
+        <script src="js/entities.js"></script>
+        <script src="js/soundManager.js"></script>
+        <script src="js/physicManager.js"></script>
+        <script src="js/eventsManager.js"></script>
+        <script src="js/gameManager.js"></script>
+        <div id="left_culumn">
+            <p><input type="button" value="Играть" id="start" onclick="loadGame()"></p>
+
+            <p id="level"></p>
+            <p class='info' id="counter">Очков: 0</p>
+        </div>
+        <div><canvas id="canvasid" width="1000" height="400"></canvas></div>
+
+        <script>
+            let canvas = document.getElementById("canvasid");
+            let ctx = canvas.getContext("2d");
+
+            function loadGame()
+            {
+                gameManager.reload(`maps/tilemap.json`, 1)
+                gameManager.play()
+
+                document.getElementById("start").disabled = true
+            }
+        </script>
+    </body>
+</html>
